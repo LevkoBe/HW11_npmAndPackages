@@ -1,3 +1,4 @@
+// import moment from "moment";
 // import { reverse } from "\\node_modules\\@types\\lodash\\index.d.ts";
 // import { reverse } from "./node_modules/lodash/index.d.ts";
 // import { reverse } from "lodash";
@@ -19,3 +20,7 @@ $("#modify-data-button").on("click", function () {
   // data = reverse(data);
   displayData();
 });
+
+// Example usage
+let now = moment();
+console.log(now.format("MMMM Do YYYY, h:mm:ss a"));
