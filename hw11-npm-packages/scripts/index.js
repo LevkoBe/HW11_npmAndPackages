@@ -13,3 +13,17 @@ $("#modify-data-button").on("click", function () {
 
 let now = moment();
 $("#current-time").text(now.format("MMMM Do YYYY, h:mm:ss a"));
+
+let ctx = document.getElementById("myChart").getContext("2d");
+let myChart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: ["Data1", "Data2", "Data3", "Data4", "Data5"],
+    datasets: [
+      {
+        label: "Sample Data",
+        data: data,
+      },
+    ],
+  },
+});

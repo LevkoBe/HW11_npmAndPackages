@@ -6,12 +6,18 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="module"></script>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="node_modules/moment/moment.js"></script>
+    <script src="node_modules/chart.js/dist/chart.umd.js" type="module"></script>
+    <script src="scripts/index.js" type="module"></script>
   </head>
   <body>
     <h1>NPM Package Project</h1>
     <div id="data-container"></div>
-    <div id="current-time"></div>
+    <canvas id="myChart" width="400" height="400"></canvas>
     <button id="modify-data-button">Modify Data</button>
-    <script src="scripts/index.js" type="module"></script>
+    <button id="generate-random-data">Generate Random Data</button>
+    <button id="chunk-data">Chunk Data</button>
+    <button id="sort-data">Sort Data</button>
+    <button id="shuffle-data">Shuffle Data</button>
+    <button id="add-to-graph">Add to Graph</button>
   </body>
 </html>
