@@ -1,5 +1,6 @@
 let data = [];
 let chartData = [];
+const letters = "0123456789ABCDEF";
 
 function displayData() {
   $("#data-container").html(JSON.stringify(data));
@@ -11,7 +12,22 @@ function updateChart() {
   chartData = data.slice();
   myChart.data.datasets[0].data = chartData;
   myChart.data.labels = chartData;
+  let transparency = "";
+  for (let i = 0; i < 2; i++) {
+    transparency += letters[Math.floor(Math.random() * 16)];
+  }
+  const randomColors = chartData.map(() => getRandomColor(transparency));
+  myChart.data.datasets[0].backgroundColor = randomColors;
+  myChart.data.datasets[0].borderColor = randomColors;
   myChart.update();
+}
+
+function getRandomColor(transparency) {
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color + transparency;
 }
 
 $("#modify-data-button").on("click", function () {
@@ -21,7 +37,9 @@ $("#modify-data-button").on("click", function () {
 });
 
 $("#generate-random-data").on("click", function () {
-  data = Array.from({ length: 5 }, () => Math.floor(Math.random() * 10));
+  let size = data.length > 5 ? data.length : 5;
+
+  data = Array.from({ length: size }, () => Math.floor(Math.random() * 10));
   displayData();
   updateChart();
 });
