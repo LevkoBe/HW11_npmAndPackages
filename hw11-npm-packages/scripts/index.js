@@ -1,5 +1,5 @@
-let data = [1, 2, 3, 4, 5];
-let chartData = data.slice();
+let data = [];
+let chartData = [];
 
 function displayData() {
   $("#data-container").html(JSON.stringify(data));
@@ -7,52 +7,92 @@ function displayData() {
 
 displayData();
 
+function updateChart() {
+  chartData = data.slice();
+  myChart.data.datasets[0].data = chartData;
+  myChart.data.labels = chartData;
+  myChart.update();
+}
+
 $("#modify-data-button").on("click", function () {
   data = _.reverse(data);
-  chartData = data.slice();
   displayData();
+  updateChart();
 });
 
 $("#generate-random-data").on("click", function () {
   data = Array.from({ length: 5 }, () => Math.floor(Math.random() * 10));
-  chartData = data.slice();
   displayData();
+  updateChart();
 });
 
 $("#chunk-data").on("click", function () {
   data = _.chunk(data, 2);
-  chartData = data.slice();
+  chartData = data.flat();
   displayData();
+  updateChart();
 });
 
 $("#sort-data").on("click", function () {
   data = _.sortBy(data);
-  chartData = data.slice();
   displayData();
+  updateChart();
 });
 
 $("#shuffle-data").on("click", function () {
   data = _.shuffle(data);
-  chartData = data.slice();
   displayData();
+  updateChart();
 });
 
 $("#uniq-data").on("click", function () {
   data = _.uniq(data);
-  chartData = data.slice();
   displayData();
+  updateChart();
 });
 
 $("#compact-data").on("click", function () {
   data = _.compact(data);
-  chartData = data.slice();
   displayData();
+  updateChart();
 });
 
 $("#initial-data").on("click", function () {
   data = _.initial(data);
-  chartData = data.slice();
   displayData();
+  updateChart();
+});
+
+$("#last-data").on("click", function () {
+  data = _.last(data, 2);
+  displayData();
+  updateChart();
+});
+
+$("#add-value").on("click", function () {
+  data.push(Math.floor(Math.random() * 10));
+  chartData.push(data[data.length - 1]);
+  displayData();
+  updateChart();
+});
+
+$("#remove-value").on("click", function () {
+  data.pop();
+  chartData.pop();
+  displayData();
+  updateChart();
+});
+
+$("#increase-array").on("click", function () {
+  data = data.concat(data);
+  displayData();
+  updateChart();
+});
+
+$("#decrease-array").on("click", function () {
+  data = data.slice(0, data.length / 2);
+  displayData();
+  updateChart();
 });
 
 let now = moment();
@@ -62,7 +102,7 @@ let ctx = document.getElementById("myChart").getContext("2d");
 let myChart = new Chart(ctx, {
   type: "bar",
   data: {
-    labels: ["Data1", "Data2", "Data3", "Data4", "Data5"],
+    labels: [],
     datasets: [
       {
         label: "Sample Data",
@@ -83,6 +123,5 @@ let myChart = new Chart(ctx, {
 });
 
 $("#add-to-graph").on("click", function () {
-  myChart.data.datasets[0].data = chartData;
-  myChart.update();
+  updateChart();
 });
