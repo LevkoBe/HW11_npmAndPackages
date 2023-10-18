@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#data-container {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #aaa;
+}
+
+#myChart {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #aaa;
+}
+
+#current-time {
+  text-align: center;
+  color: #555;
+  margin: 10px;
+}
+
+button[id^="modify-data"],
+button[id^="generate-random-data"],
+button[id^="chunk-data"],
+button[id^="sort-data"],
+button[id^="shuffle-data"],
+button[id^="uniq-data"],
+button[id^="compact-data"],
+button[id^="initial-data"],
+button[id^="last-data"],
+button[id^="add-value"],
+button[id^="remove-value"],
+button[id^="increase-array"],
+button[id^="decrease-array"] {
+  background-color: #3498db;
+}
+
+button[id^="modify-data"]:hover,
+button[id^="generate-random-data"]:hover,
+button[id^="chunk-data"]:hover,
+button[id^="sort-data"]:hover,
+button[id^="shuffle-data"]:hover,
+button[id^="uniq-data"]:hover,
+button[id^="compact-data"]:hover,
+button[id^="initial-data"]:hover,
+button[id^="last-data"]:hover,
+button[id^="add-value"]:hover,
+button[id^="remove-value"]:hover,
+button[id^="increase-array"]:hover,
+button[id^="decrease-array"]:hover {
+  background-color: #2980b9;
+}
