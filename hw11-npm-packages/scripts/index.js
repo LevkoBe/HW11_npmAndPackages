@@ -8,10 +8,9 @@ function displayData() {
 displayData();
 
 $("#modify-data-button").on("click", function () {
-  // Lodash
   data = _.reverse(data);
   displayData();
 });
 
 let now = moment();
-console.log(now.format("MMMM Do YYYY, h:mm:ss a"));
+$("#current-time").text(now.format("MMMM Do YYYY, h:mm:ss a"));
