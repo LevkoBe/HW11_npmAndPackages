@@ -37,6 +37,24 @@ $("#shuffle-data").on("click", function () {
   displayData();
 });
 
+$("#uniq-data").on("click", function () {
+  data = _.uniq(data);
+  chartData = data.slice();
+  displayData();
+});
+
+$("#compact-data").on("click", function () {
+  data = _.compact(data);
+  chartData = data.slice();
+  displayData();
+});
+
+$("#initial-data").on("click", function () {
+  data = _.initial(data);
+  chartData = data.slice();
+  displayData();
+});
+
 let now = moment();
 $("#current-time").text(now.format("MMMM Do YYYY, h:mm:ss a"));
 
